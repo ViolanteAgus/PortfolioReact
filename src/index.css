@@ -3,37 +3,41 @@
   margin: 0;
   text-decoration: none;
   list-style-type: none;
+  box-sizing: 0;
 }
 
 body{
   background-color: #010312;
 }
 
+
+
 /*Header*/
-
-a{
-  color: #c4c4cb;
-}
-
-a:hover{
-color: #512777;
-}
-
-.header{
+.navbar{
+  height: 60px;
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-
-.lista{
-  display: flex;
-}
-.hdr{
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin: 0 195px 0 195px;
-  font-size: 25px;
+  max-width: 1750px;
+  animation: borrar100 0.4s both
+}
+
+.nav_items a{
+  margin: 20px;
+  color: #c4c4cb;
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav_toggle{
+  display: none;
+}
+
+.nav_logo a{
+  margin-top: 30px;
+  padding: 30px;
+
 }
 
 /*About*/
@@ -41,7 +45,7 @@ color: #512777;
 .profile{
   container-name: profile;
   container-type: inline-size;
-  animation: aparecer 2s -.6s both;
+  animation: aparecer 3s -.6s both;
 }
 
 .profile_wrapper{
@@ -131,6 +135,83 @@ animation: rellenar60 4s both;
 color: #512777;
 }
 
+
+/*Projects*/
+
+.container{
+  background-color: #c4c4cb;
+}
+
+
+.box1{
+  margin-top: 110px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Mediaquerys */
+
+@media (max-width: 1000px) {
+
+  .navbar.open{
+    background-color: #512777;
+    animation: rellenar100 0.4s both;
+  }
+
+  .nav_items{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #512777;
+    z-index: 100;
+    width: 100%;
+    height: -webkit-fill-available;
+    transform: translateX(-100%); 
+    transition: 0.4s ease all;
+  }
+
+  .nav_items.open{
+    transform:translateX(0)
+  }
+  
+  .nav_toggle{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+  }
+
+  .nav_toggle span{
+    width: 30px;
+    height: 4px;
+    background:#c4c4cb;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    transform-origin: 5px 0;
+    transition: all 0.2s linear;
+  }
+
+  .nav_toggle.open > span{
+    transform: rotate(45deg) translate(0px, 0px);
+  }
+  .nav_toggle.open > span:nth-child(2){
+    display: none;
+  }
+  .nav_toggle.open > span:nth-child(3){
+    transform: rotate(-45deg) translate(-5px, 1px);
+  }
+
+}
+
+
 /*-------ANIMACIONES---------*/
 
 @keyframes aparecer{
@@ -139,6 +220,24 @@ color: #512777;
   }
   to{
       opacity: 1;
+  }
+}
+
+@keyframes rellenar100{
+  from{
+    background-color: #010312;
+}
+to{
+    background-color: #512777;
+}
+}
+
+@keyframes borrar100{
+  from{
+      background-color: #512777;
+  }
+  to{
+      background-color: #010312;
   }
 }
 

@@ -20,7 +20,7 @@ export const About = () => {
                         <ul>
                             <li className="profile_skill">
                                 <div className="load-bar">
-                                    <div class="load-bar-bar bar--80">80%</div>
+                                    <div className="load-bar-bar bar--80">80%</div>
                                 </div>
                                 <span className="profile_skill-name">HTML</span>
                             </li>
