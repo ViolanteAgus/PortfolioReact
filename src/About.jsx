@@ -4,6 +4,7 @@ import n from './assets/img/n.jpg'
 export const About = () => {
   return (
     <>
+    <div className="margen_total">
         <main className="profile" id="profile">
         <div className="profile_wrapper">
             <div className="profile_img-container">
@@ -48,6 +49,7 @@ export const About = () => {
             </div>
         </div>
     </main>
+    </div>
     </>
   )
 }

@@ -10,14 +10,19 @@ body{
   background-color: #010312;
 }
 
+.margen_total{
+  max-width: 1200vh;
+}
+
 
 
 /*Header*/
 .navbar{
-  height: 60px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   max-width: 1750px;
   animation: borrar100 0.4s both
 }
@@ -27,35 +32,40 @@ body{
   color: #c4c4cb;
   position: relative;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 28px;
+}
+
+.nav_items a:hover{
+  color: #512777;
 }
 
 .nav_toggle{
   display: none;
 }
 
-.nav_logo a{
-  margin-top: 30px;
-  padding: 30px;
-
+.nav_logo{
+  padding: 80px;
+  z-index: 100;
 }
 
 /*About*/
 
 .profile{
-  container-name: profile;
-  container-type: inline-size;
   animation: aparecer 3s -.6s both;
 }
 
 .profile_wrapper{
-  margin-top: 50px;
+  margin-top: 0;
+  padding-bottom: 37px;
   display: flex;
+  margin-bottom: 90px;
   flex-direction: row-reverse;
   justify-content: center;
   background-color: #010312;
   color: #c4c4cb;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .profile_data-container{
@@ -138,27 +148,145 @@ color: #512777;
 
 /*Projects*/
 
+
 .container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  height: 60vh;
+  width: 100%;
+  padding-bottom: 17vh;
+  background: #c4c4cb;
+  flex-wrap: wrap;
+}
+
+#titleProjects{
+  display: flex;
+  text-align: center;
+  justify-content: center;
   background-color: #c4c4cb;
+  padding-top: 60px;
+  font-size: 65px;
+  text-decoration-line: overline;
 }
 
-
-.box1{
-  margin-top: 110px;
+.card {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  margin: 40px;
 }
 
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: .5s;
+}
 
+.card .front{
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px #010312;
+}
 
+.card .front img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.card .front h3{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: #c4c4cb;
+  background: rgba(0,0,0,0.4);
+  text-align: center;
+}
 
+.card .back{
+  transform: perspective(600px) rotateY(180deg);
+  background-color: #512777;
+  padding: 15px;
+  color: #c4c4cb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 5px 10px #010312;
+  text-align: center;
+}
 
+.card .back .link{
+  border-top: solid 1px #c4c4cb;
+  height: 50px;
+  line-height: 50px;
+}
 
+.card .back .link a:hover{
+  color: #010312;
+  transition: .5s;
+}
+
+.card .back .link a{
+  color: #c4c4cb;
+}
+
+.card .back h3{
+  font-size: 30px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.card .back p{
+  letter-spacing: 1px;
+}
+
+.card:hover .front{
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back{
+  transform: perspective(600px) rotateY(360deg);
+}
 
 
 
 /* Mediaquerys */
 
+@media (max-width:1300px){
+  
+  /* About */
+  .profile_img-container{
+    max-width: 200px;
+
+  }
+
+  .profile_img{
+    border-radius: 50%;
+    padding-left: 0;
+  }
+
+  .profile_wrapper{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile_skill{
+    text-align: start;
+    align-items: center;
+  }
+}
+
 @media (max-width: 1000px) {
+
+  /* header */
 
   .navbar.open{
     background-color: #512777;
@@ -167,16 +295,20 @@ color: #512777;
 
   .nav_items{
     position: absolute;
-    top: 60px;
+    top: 120px;
     left: 0;
     display: flex;
     flex-direction: column;
     background-color: #512777;
-    z-index: 100;
+    z-index: 500;
     width: 100%;
     height: -webkit-fill-available;
     transform: translateX(-100%); 
     transition: 0.4s ease all;
+  }
+
+  .nav_items a:hover{
+    color: #c4c4cb;
   }
 
   .nav_items.open{
@@ -187,6 +319,10 @@ color: #512777;
     display: flex;
     flex-direction: column;
     margin: 15px;
+  }
+
+  .nav_logo{
+    padding: 20px;
   }
 
   .nav_toggle span{
@@ -208,7 +344,6 @@ color: #512777;
   .nav_toggle.open > span:nth-child(3){
     transform: rotate(-45deg) translate(-5px, 1px);
   }
-
 }
 
 

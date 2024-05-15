@@ -11,7 +11,7 @@ export const Header2 = () => {
         <div className="nav_logo"><a href="#"><img src={portfolio} alt="logo"/></a></div>
         <div className={`nav_items ${isOpen && "open"}`}>
             <a href="#" className="item">About</a>
-            <a href="#" className="item">Projects</a>
+            <a href="#titleProjects" className="item">Projects</a>
             <a href="#" className="item">Skills</a>
             <a href="#" className="item">Contact</a>
         </div>
